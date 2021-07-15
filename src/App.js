@@ -1,25 +1,22 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import {Router, navigate} from '@reach/router';
+import DataPull from './components/DataPull';
+import Input from './components/Form';
+import SearchError from './components/SearchError';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Input/>
+      <Router>
+        <DataPull path ="/:pull/:id"/>
+        <SearchError path ="/404"/>
+      </Router>
     </div>
   );
+
 }
+
 
 export default App;
